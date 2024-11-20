@@ -1,0 +1,29 @@
+.carousel_img {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 10%;
+}
+
+.carousel_desc div {
+  margin-top: 1rem;
+}
+
+.carousel_name {
+  font-family: Montserrat-Medium;
+  font-size: 15px;
+}
+
+.carousel_price {
+  font-family: Montserrat-Regular;
+  font-size: 15px;
+}
+
+.carousel_color_desc {
+  font-family: Avenir;
+  font-size: 12px;
+}
+
+.carousel_score {
+  font-family: Avenir;
+  font-size: 14px;
+}
