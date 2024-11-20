@@ -16,6 +16,7 @@ type Product = {
   name: string;
   popularityScore: number;
   weight: number;
+  price: string;
   selected: "yellow" | "rose" | "white";
   colorDesc: string;
 };
