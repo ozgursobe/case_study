@@ -2,32 +2,26 @@ import React, { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import "./carousel.css";
 import Rating from "@mui/material/Rating";
+import { type Product } from "../../layout/body/ProductList/ProductList";
 
-type Product = {
-  images: {
-    rose: string;
-    white: string;
-    yellow: string;
-  };
-  name: string;
-  popularityScore: number;
-  weight: number;
-};
+interface ICarousel {
+  product: Product;
+}
 
 const buttonSize = {
   width: "1.5rem",
   height: "1.5rem",
 };
 
-const Carousel = ({ product }: any) => {
-  const [productItem, setProductItem] = useState(product);
+const Carousel = ({ product }: ICarousel) => {
+  const [productItem, setProductItem] = useState<Product>(product);
 
   useEffect(() => {
     setProductItem(product);
   }, [product]);
 
-  const changeColor = (color: string) => {
-    setProductItem((prev: any) => ({
+  const changeColor = (color: "yellow" | "rose" | "white") => {
+    setProductItem((prev: Product) => ({
       ...prev,
       selected: color,
       colorDesc: `${color} Gold`,

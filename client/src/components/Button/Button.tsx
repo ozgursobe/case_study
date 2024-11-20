@@ -1,7 +1,16 @@
 import React from "react";
 import "./button.css";
 
-const Button = ({ style, handleColor }: any) => {
+interface IButton {
+  style: {
+    bg_color: string;
+    width: string;
+    height: string;
+  };
+  handleColor: () => void;
+}
+
+const Button = ({ style, handleColor }: IButton) => {
   return (
     <button
       style={{

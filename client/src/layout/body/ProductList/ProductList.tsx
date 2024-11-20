@@ -5,9 +5,9 @@ import Carousel from "../../../components/Carousel/Carousel";
 import "./productList.css";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-type ProductList = Product[];
+type ProductListType = Product[];
 
-type Product = {
+export type Product = {
   images: {
     rose: string;
     white: string;
@@ -22,7 +22,7 @@ type Product = {
 };
 
 const ProductList = () => {
-  const [product, setProduct] = useState<ProductList>([]);
+  const [product, setProduct] = useState<ProductListType>([]);
   const [initial, setInitial] = useState<number>(0);
   const handlePrev = () => {
     setInitial((prevIndex) => Math.max(prevIndex - 4, 0));
