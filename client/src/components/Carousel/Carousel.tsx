@@ -40,7 +40,7 @@ const Carousel = ({ product }: any) => {
         />
         <div className="carousel_desc">
           <div className="carousel_name"> {productItem.name} </div>
-          <div className="carousel_price">232</div>
+          <div className="carousel_price">{productItem.price} </div>
           <div className="carousel_color_picker">
             <Button
               style={{
