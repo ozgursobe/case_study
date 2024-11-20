@@ -16,6 +16,8 @@ type Product = {
   name: string;
   popularityScore: number;
   weight: number;
+  selected: "yellow" | "rose" | "white";
+  colorDesc: string;
 };
 
 const ProductList = () => {
@@ -24,7 +26,14 @@ const ProductList = () => {
     fetch("/products.json")
       .then((res) => res.json())
       .then((data) => {
-        setProduct(data.slice(0, 4));
+        setProduct(
+          data.slice(0, 4).map((prd: Product) => ({
+            ...prd,
+            popularityScore: (prd.popularityScore / 20).toFixed(1),
+            colorDesc: "Yellow Gold",
+            selected: "yellow",
+          }))
+        );
       })
       .catch((e) => {
         console.log(e);

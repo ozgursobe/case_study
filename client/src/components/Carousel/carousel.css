@@ -3,7 +3,6 @@
   height: 16rem;
   border-radius: 10%;
 }
-
 .carousel_desc div {
   margin-top: 1rem;
 }
@@ -18,12 +17,27 @@
   font-size: 15px;
 }
 
+.carousel_color_picker {
+  display: flex;
+  gap: 1rem;
+}
+
 .carousel_color_desc {
   font-family: Avenir;
   font-size: 12px;
 }
 
+.carousel_color_desc::first-letter {
+  text-transform: capitalize;
+}
+
 .carousel_score {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.prd_score {
   font-family: Avenir;
   font-size: 14px;
 }
