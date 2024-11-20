@@ -1,0 +1,18 @@
+.product_list {
+  width: 90%;
+  margin: 0 8rem;
+  display: flex;
+}
+
+.move_icon {
+  padding-top: 6rem;
+  width: 4rem;
+  height: 4rem;
+  color: rgb(62, 60, 60);
+  cursor: pointer;
+}
+
+.carousel_list {
+  display: flex;
+  gap: 8rem;
+}

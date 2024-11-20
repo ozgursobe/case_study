@@ -1,11 +1,28 @@
+@font-face {
+  font-family: "Avenir";
+  src: url("/public/fonts/Avenir-Book.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat-Medium";
+  src: url("/public/fonts/Montserrat-Medium.otf");
+}
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("/public/fonts/Montserrat-Regular.ttf");
+}
+
 .content {
   margin-top: 4rem;
 }
 
-.title {
+.prd_title {
+  font-family: Avenir;
+  font-size: 45px;
   text-align: center;
 }
 
-.product_list {
+.prd_section {
   margin-top: 4rem;
 }

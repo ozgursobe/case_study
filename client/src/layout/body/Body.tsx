@@ -5,8 +5,8 @@ import ProductList from "./ProductList/ProductList";
 const Body = () => {
   return (
     <main className="content">
-      <h3 className="title">Product List</h3>
-      <div className="product_list">
+      <h3 className="prd_title">Product List</h3>
+      <div className="prd_section">
         <ProductList />
       </div>
     </main>
