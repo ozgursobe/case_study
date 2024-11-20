@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import "./carousel.css";
 import Rating from "@mui/material/Rating";
@@ -21,6 +21,10 @@ const buttonSize = {
 
 const Carousel = ({ product }: any) => {
   const [productItem, setProductItem] = useState(product);
+
+  useEffect(() => {
+    setProductItem(product);
+  }, [product]);
 
   const changeColor = (color: string) => {
     setProductItem((prev: any) => ({
@@ -68,7 +72,7 @@ const Carousel = ({ product }: any) => {
           <div className="carousel_color_desc">{productItem.colorDesc} </div>
           <div className="carousel_score">
             <Rating
-              defaultValue={productItem.popularityScore}
+              value={productItem.popularityScore}
               precision={0.5}
               disabled
             />

@@ -23,14 +23,21 @@ type Product = {
 
 const ProductList = () => {
   const [product, setProduct] = useState<ProductList>([]);
+  const [initial, setInitial] = useState<number>(0);
+  const handlePrev = () => {
+    setInitial((prevIndex) => Math.max(prevIndex - 4, 0));
+  };
+  const handleNext = () => {
+    setInitial((prevIndex) => Math.min(prevIndex + 4, product.length - 4));
+  };
   useEffect(() => {
     fetch("http://localhost:5000/")
       .then((res) => res.json())
       .then((data) => {
         setProduct(
-          data.slice(0, 4).map((prd: Product) => ({
+          data.map((prd: Product) => ({
             ...prd,
-            popularityScore: (prd.popularityScore / 20).toFixed(1),
+            popularityScore: Number((prd.popularityScore / 20).toFixed(1)),
             colorDesc: "Yellow Gold",
             selected: "yellow",
           }))
@@ -44,13 +51,15 @@ const ProductList = () => {
   return (
     <>
       <div className="product_list">
-        <MdKeyboardArrowLeft className="move_icon" />
+        <MdKeyboardArrowLeft className="move_icon" onClick={handlePrev} />
         <div className="carousel_list">
-          {product.map((prd: Product) => (
-            <Carousel product={prd} />
-          ))}
+          {product
+            .slice(initial, initial + 4)
+            .map((prd: Product, index: number) => (
+              <Carousel product={prd} key={index} />
+            ))}
         </div>
-        <MdKeyboardArrowRight className="move_icon" />
+        <MdKeyboardArrowRight className="move_icon" onClick={handleNext} />
       </div>
     </>
   );
