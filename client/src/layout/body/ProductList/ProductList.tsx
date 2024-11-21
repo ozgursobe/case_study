@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import Carousel from "../../../components/Carousel/Carousel";
@@ -24,11 +23,14 @@ export type Product = {
 const ProductList = () => {
   const [product, setProduct] = useState<ProductListType>([]);
   const [initial, setInitial] = useState<number>(0);
+  const productSize = 4;
   const handlePrev = () => {
-    setInitial((prevIndex) => Math.max(prevIndex - 4, 0));
+    setInitial((prevIndex) => Math.max(prevIndex - productSize, 0));
   };
   const handleNext = () => {
-    setInitial((prevIndex) => Math.min(prevIndex + 4, product.length - 4));
+    setInitial((prevIndex) =>
+      Math.min(prevIndex + productSize, product.length - productSize)
+    );
   };
   useEffect(() => {
     fetch("http://localhost:5000/")
@@ -54,7 +56,7 @@ const ProductList = () => {
         <MdKeyboardArrowLeft className="move_icon" onClick={handlePrev} />
         <div className="carousel_list">
           {product
-            .slice(initial, initial + 4)
+            .slice(initial, initial + productSize)
             .map((prd: Product, index: number) => (
               <Carousel product={prd} key={index} />
             ))}

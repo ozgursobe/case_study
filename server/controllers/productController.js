@@ -6,7 +6,7 @@ const getProducts = async (req, res) => {
     const productsWithPrice = await addPriceToProducts(productsData);
     res.json(productsWithPrice);
   } catch (error) {
-    res.status(500).json({ error: "An error occurred while processing data." });
+    res.status(500).json({ error: "An error occurred." });
   }
 };
 
