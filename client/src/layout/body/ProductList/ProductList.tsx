@@ -20,6 +20,8 @@ export type Product = {
   colorDesc: string;
 };
 
+const baseURL = "https://kutez-backend.vercel.app/";
+
 const ProductList = () => {
   const [product, setProduct] = useState<ProductListType>([]);
   const [initial, setInitial] = useState<number>(0);
@@ -33,7 +35,7 @@ const ProductList = () => {
     );
   };
   useEffect(() => {
-    fetch("http://localhost:5000/")
+    fetch(baseURL)
       .then((res) => res.json())
       .then((data) => {
         setProduct(
